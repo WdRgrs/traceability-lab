@@ -22,7 +22,7 @@ app.get('/error', function(req, res) {
 });
 
 app.get('/critical', function(req, res) {
-  rollbar.log('user tried ..')
+  rollbar.log('user tried click critically..')
   rollbar.critical('this is a critical error')
 })
 

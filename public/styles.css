@@ -7,3 +7,12 @@ aside {
     top: 10px;
     right: 10px;
 }
+#critical {
+    background: red;
+    color: Yellow;
+    border: 3px black dotted;
+    display: inline;
+}
+#critical:hover {
+    cursor: pointer
+}
