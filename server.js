@@ -4,6 +4,18 @@ const app = express();  //This is the function that puts express to use
 
 app.use(express.json());
 
+// include and initialize the rollbar library with your access token
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: '1a35285ff1024ca3a7bec75136e3af89',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("This is the traceability rollbar.log");
+
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/public/index.html')) //res is a built in body, sendfile being a build in method to send back a file at a specific path
 //path.join - join the location of index.html to the current directory
