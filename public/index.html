@@ -10,6 +10,11 @@
 </head>
 <body>
     <h1>Hellooooo</h1>
+
+    
+
+
+
     <form>
         <input type="text" placeholder="type name here..."/>
         <button>add student</button>
@@ -22,7 +27,8 @@
 
         function submitHandler(e) {
             e.preventDefault()
-            axios.post('/api/student', {name: nameInput.value})
+            axios
+                .post('/api/student', {name: nameInput.value})
                 .then(res => {
                     container.innerHTML = ''
                     nameInput.value = ''

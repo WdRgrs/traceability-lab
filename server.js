@@ -18,9 +18,9 @@ rollbar.log("This is the traceability rollbar.log");
 
 app.get('/', function(req, res) {
     rollbar.log('Hello World');
+    
+    // res.sendFile(path.join(__dirname, '/public/home.html'))  //this is a broken link and will return 'User tried to access a broken link' to my rollbar account
     rollbar.error('User tried to access a broken link');
-
-    res.sendFile(path.join(__dirname, '/public/home.html'))  //this is a broken link and will return 'User tried to access a broken link' to my rollbar account
     
     res.sendFile(path.join(__dirname, '/public/index.html')) 
     //res is a built in body, sendfile being a build in method to send back a file at a specific path
@@ -28,9 +28,12 @@ app.get('/', function(req, res) {
   }); //__dirname - always the first argument of the directory at this location (monitoring-interactive)
   
   
+
   
-  //Below is the start of Eric's code for practice
-  
+
+
+
+//Below is the start of Eric's code for practice  
 let students = [] // we'll hold any students added here
 
 app.post('/api/student', (req, res) => {
@@ -61,8 +64,11 @@ app.post('/api/student', (req, res) => {
         rollbar.error(err)
     }
 })
-
 app.use(rollbar.errorHandler()) // // Use the rollbar error handler to send exceptions to your rollbar account for logging
+
+
+
+
 
 const port = process.env.PORT || 4413;
 app.listen(port, function() {
