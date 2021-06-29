@@ -18,7 +18,7 @@ rollbar.log("This is the traceability rollbar.log");
 
 
 app.get('/error', function(req, res) {
-  res.error('error test')
+  rollbar.error('error test')
 });
 
 app.get('/critical', function(req, res) {
