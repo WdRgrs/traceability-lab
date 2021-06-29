@@ -16,6 +16,17 @@ var rollbar = new Rollbar({
 rollbar.log("This is the traceability rollbar.log");
 
 
+
+app.get('/error', function(req, res) {
+  res.error('error test')
+});
+
+app.get('/critical', function(req, res) {
+  rollbar.log('user tried ..')
+  rollbar.critical('this is a critical error')
+})
+
+
 app.get('/', function(req, res) {
     rollbar.log('Hello World');
     
