@@ -41,7 +41,10 @@ app.get('/', function(req, res) {
   
 
   
-
+  app.get('/styles', function(req, res) {
+        res.sendFile( path.join(__dirname, '/public/styles.css')) 
+        // - Do this to link the css file to your html file
+    })
 
 
 //Below is the start of Eric's code for practice  
